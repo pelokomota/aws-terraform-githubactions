@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #111;
+}
+
+#tetris {
+    text-align: center;
+}
+
+#board {
+    width: 200px;
+    height: 400px;
+    border: 2px solid #fff;
+    margin: 20px auto;
+    position: relative;
+    background-color: #222;
+    display: grid;
+    grid-template-columns: repeat(10, 20px);
+    grid-template-rows: repeat(20, 20px);
+}
+
+#score {
+    color: white;
+    font-size: 1.2em;
+}
+
+.cell {
+    width: 20px;
+    height: 20px;
+    background-color: #444;
+    border: 1px solid #222;
+}
+
+.falling {
+    background-color: #ff6347;
+}
+
+.fixed {
+    background-color: #32cd32;
+}

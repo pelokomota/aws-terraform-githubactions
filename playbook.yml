@@ -1,0 +1,40 @@
+---
+- hosts: tetris
+  handlers:
+    - name: restart nginx
+      service:
+        name: nginx
+        state: restarted
+      become: yes
+  tasks:
+    - name: Install and configure Nginx
+      ansible.builtin.apt:
+        pkg:
+        - nginx
+        state: latest
+        update_cache: yes
+      become: yes
+    - name: Copy file with owner and permissions
+      ansible.builtin.copy:
+        src: files/index.html
+        dest: /var/www/tutorial/
+      become: yes
+    - name: Copy file with owner and permissions
+      ansible.builtin.copy:
+        src: files/tetris.js
+        dest: /var/www/tutorial/
+      become: yes
+    - name: Copy file with owner and permissions
+      ansible.builtin.copy:
+        src: files/styles.css
+        dest: /var/www/tutorial/
+      become: yes
+    - name: Copy file with owner and permissions
+      ansible.builtin.copy:
+        src: files/tutorial
+        dest: /etc/nginx/sites-enabled/
+      become: yes
+      notify: 
+        - restart nginx
+
+
